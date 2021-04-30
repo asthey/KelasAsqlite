@@ -47,16 +47,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void  BacaData(){
-        ArrayList<HashMap<String,String >> daftarTeman = controller.getAllTeman();
+    public  void BacaData() {
+        ArrayList<HashMap<String,String>> daftarTeman = controller.getAllTeman();
         temanArrayList = new ArrayList<>();
-        //Memindah dari hasil query kedalam Teman
-        for (int i=0;i<daftarTeman.size();i++){
+        for (int i=0; i<daftarTeman.size();i++) {
             Teman teman = new Teman();
             teman.setId(daftarTeman.get(i).get("id").toString());
             teman.setNama(daftarTeman.get(i).get("nama").toString());
             teman.setTelpon(daftarTeman.get(i).get("telpon").toString());
-            //Pindah dari teman.java ke dalam Arraylist teman di adapter
             temanArrayList.add(teman);
         }
     }
