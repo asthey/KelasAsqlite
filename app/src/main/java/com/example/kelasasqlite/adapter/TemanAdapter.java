@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kelasasqlite.EditData;
+import com.example.kelasasqlite.LihatData;
 import com.example.kelasasqlite.MainActivity;
 import com.example.kelasasqlite.R;
 import com.example.kelasasqlite.database.DBController;
@@ -57,6 +58,16 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
         holder.namaTxt.setText(nm);
         holder.telponTxt.setText(tlp);
 
+        holder.cardku.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, LihatData.class);
+                i.putExtra("id",id);
+                i.putExtra("nama",nm);
+                i.putExtra("telpon",tlp);
+                context.startActivity(i);
+            }
+        });
         holder.cardku.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
